@@ -1,8 +1,35 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Freckle+Face&family=Kirang+Haerang&display=swap');
+
 @import "tailwindcss";
 
-#root {
-  max-width: 1280px;
+/* BASE STYLES */
+:root {
+  max-width: screen;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  background-color: var(--color-beige);
+}
+
+/* THEME DIRECTIVES */
+@theme {
+  /* fonts */
+  --font-freckle: 'Freckle Face', sans-serif;
+  --font-kira: 'Kirang Haerang';
+  --font-bai: 'Bai Jamjuree';
+
+  /* colors */
+  --color-prussian: #000022;
+  --color-beige: #E6EED6;
+  --color-brick: #A72608;
+  --color-spruce: #214E34;
+  --color-carrot: #F9A03F;
+}
+
+.logotype {
+  @apply font-freckle text-7xl text-prussian;
+}
+
+.logotype .small {
+  @apply text-5xl text-spruce;
 }

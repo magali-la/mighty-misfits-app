@@ -3,7 +3,10 @@ import './App.css'
 function App() {
   return (
     <div>
-      <h1>I'm the home page</h1>
+      <div className='logotype'>
+        <header>MIGHTY</header>
+        <header className='small'>MISFITS</header>
+      </div>
         
     </div>
   )
