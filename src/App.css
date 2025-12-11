@@ -34,10 +34,19 @@ h1 {
 h2 {
   @apply font-kira text-3xl;
 }
+h3 {
+  @apply font-freckle text-4xl;
+}
+h4 {
+  @apply font-kira text-2xl;
+}
 
 /* Special text styles */
 .intro-text {
   @apply font-kira mx-[10vw] md:mx-[20vw] lg:mx-[25vw] xl:mx-[30vw] text-2xl space-y-4;
+}
+.character-text {
+  @apply font-medium;
 }
 
 /* Logotype styles */
