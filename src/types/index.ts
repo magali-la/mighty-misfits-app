@@ -17,3 +17,17 @@ export interface CharacterProfileCardProps {
     character: Character;
     children?: React.ReactNode;
 }
+
+// Powerups Display interface and props
+export interface Powerup {
+    id: number;
+    image: string;
+    name: string;
+    cost: number;
+    desc: string; 
+}
+
+export interface PowerupDisplayProps {
+    powerup: Powerup;
+    children?: React.ReactNode;
+}

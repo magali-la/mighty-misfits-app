@@ -1,7 +1,7 @@
 import './App.css'
 import CharacterProfileCard from './components/CharacterProfileCard/CharacterProfileCard.tsx'
 import PowerupDisplay from './components/PowerupDisplay/PowerupDisplay.tsx'
-import type { Character } from './types/index.ts'
+import type { Character, Powerup } from './types/index.ts'
 
 function App() {
   // define characters using Character Interface - man, woman, zombie, robot
@@ -52,10 +52,54 @@ function App() {
     specialAbility: "Iron Intellect!",
     abilityDesc: "Uncovers hidden clues and withstands damage like a tank. Enemies struggle to bring him down."
   }
+
+  // define powerups using Powerups Interface
+  const antidote: Powerup = {
+    id: 1,
+    image: '/genericItem_antidote.png',
+    name: 'Antidote Boost',
+    cost: 30,
+    desc: 'Temporarily blocks infection effects and boosts resistance. Munsch hates this one.'
+  }
+  const book: Powerup = {
+    id: 2,
+    image: '/genericItem_book.png',
+    name: 'History Lesson',
+    cost: 15,
+    desc: 'Grants a burst of wit. Your team suddenly remembers every sneaky trick in the book.'
+  }
+  const coffee: Powerup = {
+    id: 3,
+    image: '/genericItem_coffee.png',
+    name: 'Expresso',
+    cost: 40,
+    desc: 'Supercharges speed and stamina. Caffeine has never been this effective at breaking into labs.'
+  }
+  const keycard: Powerup = {
+    id: 4,
+    image: '/genericItem_keycard.png',
+    name: 'Stolen Keycard',
+    cost: 40,
+    desc: 'Unlocks sealed doors, restricted labs, and enemy storage rooms. Who needs stealth when you have this?'
+  }
+  const paintbrush: Powerup = {
+    id: 5,
+    image: '/genericItem_paintbrush.png',
+    name: 'Art Smarts',
+    cost: 25,
+    desc: 'Covers cameras and sensors with chaotic graffiti, allowing the team to sneak past unnoticed.'
+  }
+  const spatula: Powerup = {
+    id: 6,
+    image: '/genericItem_spatula.png',
+    name: 'Spatula of Doom',
+    cost: 50,
+    desc: 'A surprisingly deadly kitchen spatula that deals quick smack attacks. Agile heroes love this.'
+  }
   
 
   return (
-    <div className='flex flex-col gap-9 my-10'>
+    <div className='flex flex-col gap-9 my-10 w-full'>
       <div className='logotype'>
         <header>MIGHTY</header>
         <header className='small'>MISFITS</header>
@@ -67,7 +111,7 @@ function App() {
         <p>Pick your hero and take on the apocalypse!</p>
       </div>
 
-      <h1>Choose your character</h1>
+      <h1>Choose your Character</h1>
       {/* characters grid */}
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-y-9 gap-x-6 mx-11'>
         <CharacterProfileCard character={man}/>
@@ -76,13 +120,18 @@ function App() {
         <CharacterProfileCard character={robot}/>
       </div>
 
-      <h2>Choose your powerup</h2>
-      {/* powerups grid */}
-      <div className='grid grid-cols-1 lg:grid-cols-3 gap-y-6 gap-x-4 mx-20'>
-        <PowerupDisplay/>
-        <PowerupDisplay/>
-        <PowerupDisplay/>
-      </div>
+      <h2>Choose your Powerup</h2>
+      {/* powerups carousel */}
+      <section className='w-full overflow-x-auto scroll-smooth snap-x snap-mandatory' aria-label='Select your powerup'>
+        <div className='flex gap-x-4 mx-12 py-5'>
+          <PowerupDisplay powerup={antidote}/>
+          <PowerupDisplay powerup={book}/>
+          <PowerupDisplay powerup={coffee}/>
+          <PowerupDisplay powerup={keycard}/>
+          <PowerupDisplay powerup={paintbrush}/>
+          <PowerupDisplay powerup={spatula}/>
+        </div>
+      </section>
       {/* start game button */}
       <button className='start-button text-2xl rounded-3xl w-fit self-center py-4 px-8 bg-brick text-beige font-bold'>START GAME</button>
     </div>
