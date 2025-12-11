@@ -9,6 +9,7 @@
   margin: 0 auto;
   text-align: center;
   background-color: var(--color-beige);
+  font-family: var(--font-bai);
 }
 
 /* THEME DIRECTIVES */
@@ -26,10 +27,29 @@
   --color-carrot: #F9A03F;
 }
 
+/* Header styles */
+h1 {
+  @apply font-kira text-4xl;
+}
+h2 {
+  @apply font-kira text-3xl;
+}
+
+/* Special text styles */
+.intro-text {
+  @apply font-kira mx-[10vw] md:mx-[20vw] lg:mx-[25vw] xl:mx-[30vw] text-2xl space-y-4;
+}
+
+/* Logotype styles */
 .logotype {
   @apply font-freckle text-7xl text-prussian;
 }
 
 .logotype .small {
   @apply text-5xl text-spruce;
+}
+
+/* Start button animations */
+.start-button:hover {
+  @apply transform transition-all duration-500 scale-110 bg-linear-to-r from-carrot via-pink-300 to-brick shadow-xl shadow-gray-400;
 }
