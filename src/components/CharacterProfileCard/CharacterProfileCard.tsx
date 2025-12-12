@@ -2,9 +2,9 @@
 import type { CharacterProfileCardProps } from "../../types";
 
 // use destructuring to get the keys from the Character Interface, set type as props for parameters
-export default function CharacterProfileCard({character: { name, type, avatar, strength, speed, wit, specialAbility, abilityDesc }}: CharacterProfileCardProps) {
+export default function CharacterProfileCard({character: { name, type, avatar, strength, speed, wit, specialAbility, abilityDesc }, onSelect}: CharacterProfileCardProps) {
     return (
-        <div className="h-full border-3 bg-carrot/35 border-prussian shadow-2xl rounded-xl flex flex-col gap-4 text-xl items-center pt-0 p-6 md:p-10 focus:outline-4 focus:outline-offset-4 focus:outline-spruce/50 focus:bg-carrot/60 cursor-pointer" tabIndex={0}>
+        <div className="h-full border-3 bg-carrot/35 border-prussian shadow-2xl rounded-xl flex flex-col gap-4 text-xl items-center pt-0 p-6 md:p-10 focus:outline-4 focus:outline-offset-4 focus:outline-spruce/50 focus:bg-carrot/60 cursor-pointer" tabIndex={0} onClick={() => onSelect(name)}>
             {/* character avatar */}
             <div className="w-fit">
                 <img src={avatar} alt="brick illustration, man with mustashe" />

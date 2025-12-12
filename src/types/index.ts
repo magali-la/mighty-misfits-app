@@ -15,6 +15,8 @@ export interface Character {
 // this defines the props sent down to the character profile card component
 export interface CharacterProfileCardProps {
     character: Character;
+    // explicitly state the type of parameter that should be passed in the function
+    onSelect: (characterName: string) => void;
     children?: React.ReactNode;
 }
 
@@ -29,6 +31,7 @@ export interface Powerup {
 
 export interface PowerupDisplayProps {
     powerup: Powerup;
+    onSelect?: () => void;
     children?: React.ReactNode;
 }
 

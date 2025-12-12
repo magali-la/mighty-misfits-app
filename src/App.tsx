@@ -6,9 +6,20 @@ import PowerupDisplay from './components/PowerupDisplay/PowerupDisplay.tsx'
 import type { Character, Powerup } from './types/index.ts'
 
 function App() {
+  // set up useStates for character & powerup selection
+  const [selectedCharacter, setSelectedCharacter] = useState<string>('');
+  const [selectedPowerup, setSelectedPowerup] = useState<string>('');
+
+  // selected character handler
+  function selectCharacter(characterName: string): void {
+    console.log(characterName);
+    setSelectedCharacter(characterName);
+  }
+  // selected powerup handler
+  
   // set up useStates for alert
-  const [showAlert, setShowAlert] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [showAlert, setShowAlert] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   // start game handler - it opens the modal alert below the start button conditionally
   function handleStart() {
@@ -133,10 +144,10 @@ function App() {
       <h1>Choose your Character</h1>
       {/* characters grid */}
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-y-9 gap-x-6 mx-11'>
-        <CharacterProfileCard character={man}/>
-        <CharacterProfileCard character={woman}/>
-        <CharacterProfileCard character={zombie}/>
-        <CharacterProfileCard character={robot}/>
+        <CharacterProfileCard character={man} onSelect={selectCharacter}/>
+        <CharacterProfileCard character={woman} onSelect={selectCharacter}/>
+        <CharacterProfileCard character={zombie} onSelect={selectCharacter}/>
+        <CharacterProfileCard character={robot} onSelect={selectCharacter}/>
       </div>
 
       <h2>Choose your Powerup</h2>
