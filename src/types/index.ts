@@ -5,6 +5,7 @@ export interface Character {
     name: string;
     type: 'Human' | 'Zombie' | 'Robot';
     avatar: string;
+    selectedAvatar?: string;
     strength: number;
     speed: number;
     wit: number;

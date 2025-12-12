@@ -2,7 +2,7 @@
 import type { CharacterProfileCardProps } from "../../types";
 
 // use destructuring to get the keys from the Character Interface, set type as props for parameters
-export default function CharacterProfileCard({character: { name, type, avatar, strength, speed, wit, specialAbility, abilityDesc }, onSelect, isSelected}: CharacterProfileCardProps) {
+export default function CharacterProfileCard({character: { name, type, avatar, selectedAvatar, strength, speed, wit, specialAbility, abilityDesc }, onSelect, isSelected}: CharacterProfileCardProps) {
     // persistent style for the focus states if selected
     const selectedStyle = `outline-4 outline-offset-4 outline-spruce/50 bg-spruce/20`;
 
@@ -10,7 +10,7 @@ export default function CharacterProfileCard({character: { name, type, avatar, s
         <div className={`h-full border-3 bg-carrot/35 border-prussian shadow-2xl rounded-xl flex flex-col gap-4 text-xl items-center pt-0 p-6 md:p-10 cursor-pointer ${isSelected ? selectedStyle : 'focus:outline-4 focus:outline-offset-4 focus:outline-carrot focus:bg-carrot/60'}`} tabIndex={0} onClick={() => onSelect(name)}>
             {/* character avatar */}
             <div className="w-fit">
-                <img src={avatar} alt="brick illustration, man with mustashe" />
+                <img src={isSelected ? selectedAvatar : avatar} className={`${isSelected ? 'drop-shadow-2xl drop-shadow-black/40' : ''}`} alt="brick illustration, man with mustashe" />
             </div>
             {/* character name */}
             <div className="flex flex-col md:flex-row justify-between items-center w-full">
