@@ -17,6 +17,8 @@ export interface CharacterProfileCardProps {
     character: Character;
     // explicitly state the type of parameter that should be passed in the function
     onSelect: (characterName: string) => void;
+    // prop to determine persistent color on selected character
+    isSelected?: boolean;
     children?: React.ReactNode;
 }
 

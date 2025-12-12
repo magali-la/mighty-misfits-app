@@ -156,10 +156,10 @@ function App() {
       <h1>Choose your Character</h1>
       {/* characters grid */}
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-y-9 gap-x-6 mx-11'>
-        <CharacterProfileCard character={man} onSelect={selectCharacter}/>
-        <CharacterProfileCard character={woman} onSelect={selectCharacter}/>
-        <CharacterProfileCard character={zombie} onSelect={selectCharacter}/>
-        <CharacterProfileCard character={robot} onSelect={selectCharacter}/>
+        <CharacterProfileCard character={man} onSelect={selectCharacter} isSelected={selectedCharacter === man.name}/>
+        <CharacterProfileCard character={woman} onSelect={selectCharacter} isSelected={selectedCharacter === woman.name}/>
+        <CharacterProfileCard character={zombie} onSelect={selectCharacter} isSelected={selectedCharacter === zombie.name}/>
+        <CharacterProfileCard character={robot} onSelect={selectCharacter} isSelected={selectedCharacter === robot.name}/>
       </div>
 
       <h2>Choose your Powerup</h2>
