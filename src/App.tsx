@@ -14,6 +14,7 @@ function App() {
   function handleStart() {
     setIsOpen(true);
     setShowAlert(true);
+    console.log(isOpen);
   };
 
   // close alert handler - parent passes down the function as an onclose prop to the alert component, triggered by a close element
