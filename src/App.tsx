@@ -16,6 +16,13 @@ function App() {
     setSelectedCharacter(characterName);
   }
   // selected powerup handler
+  function selectPowerup(powerupName: string): void {
+    console.log(powerupName);
+    setSelectedPowerup(powerupName);
+  }
+
+  // console.log to avoid netlify deploy issues with unused locals
+  console.log(selectedCharacter, selectedPowerup);
   
   // set up useStates for alert
   const [showAlert, setShowAlert] = useState<boolean>(false);
@@ -154,12 +161,12 @@ function App() {
       {/* powerups carousel */}
       <section className='w-full overflow-x-auto scroll-smooth snap-x snap-mandatory' aria-label='Select your powerup'>
         <div className='flex gap-x-4 mx-12 py-5'>
-          <PowerupDisplay powerup={antidote}/>
-          <PowerupDisplay powerup={book}/>
-          <PowerupDisplay powerup={coffee}/>
-          <PowerupDisplay powerup={keycard}/>
-          <PowerupDisplay powerup={paintbrush}/>
-          <PowerupDisplay powerup={spatula}/>
+          <PowerupDisplay powerup={antidote} onSelect={selectPowerup}/>
+          <PowerupDisplay powerup={book} onSelect={selectPowerup}/>
+          <PowerupDisplay powerup={coffee} onSelect={selectPowerup}/>
+          <PowerupDisplay powerup={keycard} onSelect={selectPowerup}/>
+          <PowerupDisplay powerup={paintbrush} onSelect={selectPowerup}/>
+          <PowerupDisplay powerup={spatula} onSelect={selectPowerup}/>
         </div>
       </section>
       {/* start game button */}

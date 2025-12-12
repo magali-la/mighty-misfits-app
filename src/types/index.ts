@@ -31,7 +31,7 @@ export interface Powerup {
 
 export interface PowerupDisplayProps {
     powerup: Powerup;
-    onSelect?: () => void;
+    onSelect: (powerupName: string) => void;
     children?: React.ReactNode;
 }
 
