@@ -1,9 +1,27 @@
+import { useState } from 'react'
 import './App.css'
+import AlertBox from './components/AlertBox/AlertBox.tsx'
 import CharacterProfileCard from './components/CharacterProfileCard/CharacterProfileCard.tsx'
 import PowerupDisplay from './components/PowerupDisplay/PowerupDisplay.tsx'
 import type { Character, Powerup } from './types/index.ts'
 
 function App() {
+  // set up useStates for alert
+  const [showAlert, setShowAlert] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // start game handler - it opens the modal alert below the start button conditionally
+  function handleStart() {
+    setIsOpen(true);
+    setShowAlert(true);
+  };
+
+  // close alert handler - parent passes down the function as an onclose prop to the alert component, triggered by a close element
+  function closeAlert() {
+    setIsOpen(false);
+    setShowAlert(false);
+  }
+
   // define characters using Character Interface - man, woman, zombie, robot
   const man: Character = {
     id: 1,
@@ -133,7 +151,15 @@ function App() {
         </div>
       </section>
       {/* start game button */}
-      <button className='start-button text-2xl rounded-3xl w-fit self-center py-4 px-8 bg-brick text-beige font-bold'>START GAME</button>
+      <button className='start-button text-2xl rounded-3xl w-fit self-center py-4 px-8 bg-brick text-beige font-bold' onClick={handleStart}>START GAME</button>
+
+      {/* conditional alert popup */}
+      {showAlert && (
+        <div className='self-center w-[50vw]'>
+          <AlertBox type='Success' message="You've successfully chosen your character and powerups. Game loading..." onClose={closeAlert} />
+          <AlertBox type='Error' message="Attention you haven't chosen both a character and a powerup. Please select both to start the adventure." onClose={closeAlert}/>
+        </div>
+      )}
     </div>
   )
 }

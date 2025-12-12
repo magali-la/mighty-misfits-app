@@ -31,3 +31,15 @@ export interface PowerupDisplayProps {
     powerup: Powerup;
     children?: React.ReactNode;
 }
+
+// Alert interface and props
+// this defines the string options for the alert types
+export type AlertType = 'Success' | 'Error';
+
+// this defines the props sent down to the alert component
+export interface AlertBoxProps {
+    type: AlertType;
+    message: string;
+    onClose?: () => void;
+    children?: React.ReactNode;
+}
