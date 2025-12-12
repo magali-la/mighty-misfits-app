@@ -166,12 +166,12 @@ function App() {
       {/* powerups carousel */}
       <section className='w-full overflow-x-auto scroll-smooth snap-x snap-mandatory' aria-label='Select your powerup'>
         <div className='flex gap-x-4 mx-12 py-5'>
-          <PowerupDisplay powerup={antidote} onSelect={selectPowerup}/>
-          <PowerupDisplay powerup={book} onSelect={selectPowerup}/>
-          <PowerupDisplay powerup={coffee} onSelect={selectPowerup}/>
-          <PowerupDisplay powerup={keycard} onSelect={selectPowerup}/>
-          <PowerupDisplay powerup={paintbrush} onSelect={selectPowerup}/>
-          <PowerupDisplay powerup={spatula} onSelect={selectPowerup}/>
+          <PowerupDisplay powerup={antidote} onSelect={selectPowerup} isSelected={selectedPowerup === antidote.name}/>
+          <PowerupDisplay powerup={book} onSelect={selectPowerup} isSelected={selectedPowerup === book.name}/>
+          <PowerupDisplay powerup={coffee} onSelect={selectPowerup} isSelected={selectedPowerup === coffee.name}/>
+          <PowerupDisplay powerup={keycard} onSelect={selectPowerup} isSelected={selectedPowerup === keycard.name}/>
+          <PowerupDisplay powerup={paintbrush} onSelect={selectPowerup} isSelected={selectedPowerup === paintbrush.name}/>
+          <PowerupDisplay powerup={spatula} onSelect={selectPowerup} isSelected={selectedPowerup === spatula.name}/>
         </div>
       </section>
       {/* start game button */}
