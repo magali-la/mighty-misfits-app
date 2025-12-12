@@ -60,5 +60,5 @@ h4 {
 
 /* Start button animations */
 .start-button:hover {
-  @apply transform transition-all duration-500 scale-110 bg-linear-to-r from-carrot via-pink-300 to-brick shadow-xl shadow-gray-400;
+  @apply transform transition-all duration-500 scale-110 bg-linear-to-r from-carrot via-carrot/50 to-brick shadow-xl shadow-gray-400;
 }

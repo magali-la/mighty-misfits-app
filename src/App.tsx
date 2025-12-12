@@ -3,7 +3,7 @@ import './App.css'
 import AlertBox from './components/AlertBox/AlertBox.tsx'
 import CharacterProfileCard from './components/CharacterProfileCard/CharacterProfileCard.tsx'
 import PowerupDisplay from './components/PowerupDisplay/PowerupDisplay.tsx'
-import type { Character, Powerup } from './types/index.ts'
+import type { AlertType, Character, Powerup } from './types/index.ts'
 
 function App() {
   // set up useStates for character & powerup selection
@@ -25,20 +25,25 @@ function App() {
   console.log(selectedCharacter, selectedPowerup);
   
   // set up useStates for alert
-  const [showAlert, setShowAlert] = useState<boolean>(false);
+  const [alertType, setAlertType] = useState<AlertType>('Error');
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   // start game handler - it opens the modal alert below the start button conditionally
   function handleStart() {
+    // determine which alert should show
+    if (selectedCharacter.length !== 0 && selectedPowerup.length !== 0) {
+      setAlertType('Success')
+    } else {
+      setAlertType('Error');
+    }
+    // open the alert
     setIsOpen(true);
-    setShowAlert(true);
     console.log(isOpen);
   };
 
   // close alert handler - parent passes down the function as an onclose prop to the alert component, triggered by a close element
   function closeAlert() {
     setIsOpen(false);
-    setShowAlert(false);
   }
 
   // define characters using Character Interface - man, woman, zombie, robot
@@ -173,10 +178,15 @@ function App() {
       <button className='start-button text-2xl rounded-3xl w-fit self-center py-4 px-8 bg-brick text-beige font-bold' onClick={handleStart}>START GAME</button>
 
       {/* conditional alert popup */}
-      {showAlert && (
+      {/* use isOpen to determine if the div opens up at all */}
+      {isOpen && (
         <div className='self-center w-[50vw]'>
-          <AlertBox type='Success' message="You've successfully chosen your character and powerups. Game loading..." onClose={closeAlert} />
-          <AlertBox type='Error' message="Attention you haven't chosen both a character and a powerup. Please select both to start the adventure." onClose={closeAlert}/>
+          {/* use alertType to determine which alert opens */}
+          {alertType === 'Success' ? (
+            <AlertBox type='Success' message="You've successfully chosen your character and powerups. Game loading..." onClose={closeAlert} /> )
+            :
+            (<AlertBox type='Error' message="Attention you haven't chosen both a character and a powerup. Please select both to start the adventure." onClose={closeAlert}/>)
+          }
         </div>
       )}
     </div>
